@@ -1,0 +1,37 @@
+name: Robot Framework Reporter Demo
+
+on:
+  pull_request:
+  push:
+    branches: [ master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run tests
+      uses: joonvena/robotframework-docker-action@v1.0
+      with:
+        robot_tests_dir: test
+    - name: Store test report
+      uses: actions/upload-artifact@v1
+      if: always()
+      with:
+        name: reports
+        path: reports
+
+  report:
+    if: always()
+    needs: [test]
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Download test report
+      uses: actions/download-artifact@v1
+      with:
+        name: reports
+    - name: Output report
+      uses: joonvena/robotframework-reporter-action@v2
+      with:
+        gh_access_token: ${{ secrets.GITHUB_TOKEN }}
