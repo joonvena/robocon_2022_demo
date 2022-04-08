@@ -25,4 +25,4 @@ Three Hours
 Twelve And A Half Hour
     Input Entry Date    05/04/2010    12:00    AM
     Input Leaving Date    05/04/2010    12:29    PM
-    Calculated Cost Should Be    $ 24.00
+    Calculated Cost Should Be    $ 25.00
