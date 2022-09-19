@@ -34,4 +34,4 @@ jobs:
     - name: Output report
       uses: joonvena/robotframework-reporter-action@v2
       with:
-        gh_access_token: ${{ secrets.GITHUB_TOKEN }}
+        gh_access_token: ${{ secrets.MyActionAccessToken }}
