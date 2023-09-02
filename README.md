@@ -1,3 +1,4 @@
-# Robocon 2022 Demo
-
-Example used in this demo is from [robotframework-cookbook](https://github.com/adrianyorke/robotframework-cookbook)
+Runs Robot Framework tests using [ppodgorsek](https://github.com/ppodgorsek/docker-robot-framework) image
+ - Uses Browser library
+ - Firefox is used as browser with headless state
+At the end of the run reads and parses output.xml from RF run
